@@ -6,6 +6,19 @@
     <link rel="manifest" href="manifest.json">
 
     <style>
+      iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    }
+    /* Media Query für das iPhone 7 SE und ähnliche Geräte */
+    @media (max-width: 375px) {
+    /* Ändere die Höhe des iframe auf Mobilgeräten im Hochbildschirmmodus */
+      iframe {
+          height: calc(100vw * 2 / 3); /* 2:3 Seitenverhältnis im Hochformat */
+          max-height: 100vh; /* Begrenze die Höhe auf die Höhe des Bildschirms */
+      }
+    }
       body {
         /* Hintergrudfarbe ändern*/
         background-color: #090327;
@@ -19,8 +32,9 @@
         background-color: white;
       }
       .logo {
-        
+
         width: 100px;
+        display: flex;
         justify-content: center;
         background-color: white;
       }
