@@ -25,17 +25,17 @@
             position: relative;
             padding-top: 200px; /* Platz für das Logo schaffen */
             height: 90vh; /* 90% der sichtbaren Höhe */
+            overflow: hidden; /* Verstecke den überschüssigen Bereich des Iframes */
         }
         .iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 70%;
+            height: 100%;
             border: none;
-            /* Verwende das transform-Attribut, um die Skalierung anzupassen */
-            transform: scale(1.2); /* Hier kann der Wert angepasst werden, 1.0 entspricht der Originalgröße */
-            transform-origin: 0 0; /* Ändere den Ursprungspunkt der Skalierung, falls erforderlich */
+            /* Füge Stile hinzu, um den Iframe zu zoomen */
+            transform-origin: 0 0;
         }
         .text {
             text-align: center;
@@ -54,7 +54,8 @@
             src="https://chatthing.ai/bots/94a55c48-4e1f-443b-8fc6-ee58fe54cbc8/embed" 
             frameborder="0" 
             allow="clipboard-write"
-            class="iframe">
+            class="iframe"
+            onload="fitIframeToContent(this)">
         </iframe>
     </div>
 
@@ -65,17 +66,23 @@
     </div>
 
     <script>
-        const iframe = document.querySelector('.iframe');
-        if (iframe) {
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) {
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) {
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) {
-                iframe.msRequestFullscreen();
-            }
+        function fitIframeToContent(iframe) {
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            const iframeBody = iframeDocument.body;
+            const iframeWidth = iframeBody.scrollWidth;
+            const iframeHeight = iframeBody.scrollHeight;
+
+            const container = iframe.parentElement;
+            const containerWidth = container.clientWidth;
+            const containerHeight = container.clientHeight;
+
+            const scaleX = containerWidth / iframeWidth;
+            const scaleY = containerHeight / iframeHeight;
+
+            // Wähle das kleinere Verhältnis, um den Iframe zu zoomen
+            const scale = Math.min(scaleX, scaleY);
+
+            iframe.style.transform = `scale(${scale})`;
         }
     </script>
 </body>
