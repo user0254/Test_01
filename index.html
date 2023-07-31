@@ -12,16 +12,34 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column; /* Neue Zeile hinzufügen */
+            flex-direction: column;
+            padding: 16px; /* Hinzugefügt, um etwas Abstand um den Inhalt zu haben */
+            box-sizing: border-box; /* Hinzugefügt, um Padding in die Gesamtgröße einzubeziehen */
         }
+
         .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Ändere 'center' zu 'flex-start' */
-            background-color: white;
+            margin-bottom: 16px; /* Hinzugefügt, um etwas Abstand zwischen dem Logo und dem Iframe zu haben */
         }
+
         .logo {
             height: 80px;
+        }
+
+        iframe {
+            width: 100%; /* Füllt den gesamten Bildschirm horizontal aus */
+            height: calc(100vh - 200px); /* Nimmt die gesamte verfügbare vertikale Höhe abzüglich Abstand ein */
+            max-height: 550px; /* Begrenze die maximale Höhe des Iframes, um es auf kleinen Bildschirmen lesbar zu halten */
+            border: none; /* Entferne die Rahmenlinie des Iframes */
+        }
+
+        .contact-info {
+            margin-top: 16px; /* Hinzugefügt, um etwas Abstand zwischen dem Iframe und dem Kontakt zu haben */
+        }
+
+        .logo-container,
+        .contact-info {
+            width: 100%; /* Füllt den gesamten Bildschirm horizontal aus */
+            text-align: center; /* Zentriere den Inhalt horizontal */
         }
     </style>
 </head>
@@ -30,42 +48,15 @@
         <img src="Images/logo.jpeg" alt="" class="logo">
     </div>
     <!-- Hier gehört der Iframe-Code hin -->
-
- <iframe 
-      src="https://chatthing.ai/bots/94a55c48-4e1f-443b-8fc6-ee58fe54cbc8/embed" 
-      width="100%" 
-      height="550px" 
-      height="100%" 
-      frameborder="0" 
-      allow="clipboard-write"
-      style="display: flex;"
-     ></iframe>
+    <iframe
+        src="https://chatthing.ai/bots/94a55c48-4e1f-443b-8fc6-ee58fe54cbc8/embed"
+        frameborder="0"
+        allow="clipboard-write"
+    ></iframe>
     <!-- Weitere Inhalte Ihrer Webseite -->
-    <p class="logo-container">Kontakt: maxmustermann@gmail.com</p>
-    <p class="logo-container">Impressum:</p>
-    <script>
-        let device = '';
-        function deviceCheck() {
-            var UserAgent = navigator.userAgent.toLowerCase();
-            /* User-Agent auf gewisse Schlüsselwörter prüfen*/
-            if (UserAgent.search(/(iphone|ipod|opera mini|fennec|palm|blackberry|android|symbian|series60)/) > -1) {
-                /* mobiles Endgerät*/
-                device = 'false';
-            } else {
-                /* kein mobiles Endgerät (PC, Tablet, etc.)*/
-                device = 'true';
-            }
-        }
-        deviceCheck();
-        alert(device);
-        if (device === 'false') {
-            // Ändere die Logo-Breite auf 300px
-            document.querySelector('.logo').style.width = '300px';
-        }
-        if (device === 'false') {
-            querySelector('iframe').innerHTML =;
-        } else {
-        }
-    </script>
+    <div class="contact-info">
+        <p>Kontakt: maxmustermann@gmail.com</p>
+        <p>Impressum:</p>
+    </div>
 </body>
 </html>
