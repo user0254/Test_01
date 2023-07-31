@@ -1,81 +1,67 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
+<head>
     <title style="color: red;">TirolGBT</title>
-
     <link rel="manifest" href="manifest.json">
-
     <style>
-      body {
-        /* Hintergrundfarbe ändern */
-        background-color: white;
-        color: black;
-        font-family: 'Roboto', sans-serif;
-      }
-      .logo-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start; /* Ändere 'center' zu 'flex-start' */
-        background-color: white;
-      }
-      .logo {
-        height: 80px;
-      }
-
-        
+        body {
+            /* Hintergrundfarbe ändern */
+            background-color: white;
+            color: black;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Neue Zeile hinzufügen */
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Ändere 'center' zu 'flex-start' */
+            background-color: white;
+        }
+        .logo {
+            height: 80px;
+        }
     </style>
-  </head>
-  <body>
-
-    
-
+</head>
+<body>
     <div class="logo-container">
-      <img src="Images/logo.jpeg" alt="" class="logo">
+        <img src="Images/logo.jpeg" alt="" class="logo">
     </div>
-
-
     <!-- Hier gehört der Iframe-Code hin -->
-    <iframe 
-      src="https://chatthing.ai/bots/94a55c48-4e1f-443b-8fc6-ee58fe54cbc8/embed" 
-      height="100%" 
-      frameborder="0" 
-      allow="clipboard-write"
-      style="display: flex;">
-    </iframe>
-
+    <iframe
+        src="https://chatthing.ai/bots/94a55c48-4e1f-443b-8fc6-ee58fe54cbc8/embed"
+        height=550px;
+        frameborder="0"
+        allow="clipboard-write"
+    ></iframe>
     <!-- Weitere Inhalte Ihrer Webseite -->
     <p class="logo-container">Kontakt: maxmustermann@gmail.com</p>
     <p class="logo-container">Impressum:</p>
-
     <script>
-      let device = '';
-
-      function deviceCheck() {
-        var UserAgent = navigator.userAgent.toLowerCase();
-
-        /* User-Agent auf gewisse Schlüsselwörter prüfen*/
-        if (UserAgent.search(/(iphone|ipod|opera mini|fennec|palm|blackberry|android|symbian|series60)/) > -1) {
-            /* mobiles Endgerät*/
-            device = 'false';
-        }else {
-            /* kein mobiles Endgerät (PC, Tablet, etc.)*/
-            device = 'true';
+        let device = '';
+        function deviceCheck() {
+            var UserAgent = navigator.userAgent.toLowerCase();
+            /* User-Agent auf gewisse Schlüsselwörter prüfen*/
+            if (UserAgent.search(/(iphone|ipod|opera mini|fennec|palm|blackberry|android|symbian|series60)/) > -1) {
+                /* mobiles Endgerät*/
+                device = 'false';
+            } else {
+                /* kein mobiles Endgerät (PC, Tablet, etc.)*/
+                device = 'true';
+            }
         }
-      }
-
-      deviceCheck();
-      alert(device)
-
-      if (device === 'false') {
-        // Ändere die Logo-Breite auf 300px
-        document.querySelector('.logo').style.width = '300px';
-      }
-
-      if (device === 'false') {
-        querySelector('iframe').innerHTML = 
-      } else {
-
-      }
+        deviceCheck();
+        alert(device);
+        if (device === 'false') {
+            // Ändere die Logo-Breite auf 300px
+            document.querySelector('.logo').style.width = '300px';
+        }
+        if (device === 'false') {
+            querySelector('iframe').innerHTML =;
+        } else {
+        }
     </script>
-  </body>
+</body>
 </html>
