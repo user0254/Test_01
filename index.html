@@ -61,6 +61,7 @@
               device = 'true';
           }
         }
+        alert(device)
         deviceCheck();
         if (device === 'false') {
           // Ändere die Logo-Breite auf 300px
@@ -68,8 +69,7 @@
         }
         if (device === 'true') {
           querySelector('iframe').width.innerHTML = "100%";
-        } else {
-        }
+        } 
     </script>
 </body>
 </html>
