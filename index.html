@@ -1,55 +1,68 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
+<head>
     <title style="color: red;">TirolGBT</title>
-
     <link rel="manifest" href="manifest.json">
-
     <style>
-      body {
-        /* Hintergrudfarbe ändern*/
-        background-color: white;
-        color: black;
-        font-family: 'Roboto', sans-serif;
-      }
-      .logo-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start; /* Ändere 'center' zu 'flex-start' */
-        background-color: white;
-      }
-      .logo {
-        display: flex;
-        width: 200px;
-      }
-      iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-  
+        body {
+            background-color: white;
+            color: black;
+            font-family: 'Roboto', sans-serif;
+            overflow: scroll;
+            margin: 0;
+            padding: 0;
+        }
+        .logo-div {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: white;
+        }
+        .logo {
+            width: 200px;
+        }
+        .iframe-container {
+            position: relative;
+            padding-top: 200px; /* Platz für das Logo schaffen */
+            height: 90vh; /* 90% der sichtbaren Höhe */
+        }
+        .iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .text {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
-  </head>
-  <body>
-    <div class="logo-container">
-      <img src="Images/logo.jpeg" alt="" class="logo">
+</head>
+<body>
+    <div class="logo-div">
+        <img src="Images/logo.jpeg" alt="" class="logo">
     </div>
 
-    <!-- Hier gehört der Iframe-Code hin -->
-    <iframe 
-    src="https://chatthing.ai/bots/94a55c48-4e1f-443b-8fc6-ee58fe54cbc8/embed" 
-    frameborder="0" 
-    allow="clipboard-write"></iframe>
+    <div class="iframe-container">
+        <!-- Hier gehört der Iframe-Code hin -->
+        <iframe 
+            src="https://chatthing.ai/bots/94a55c48-4e1f-443b-8fc6-ee58fe54cbc8/embed" 
+            frameborder="0" 
+            allow="clipboard-write"
+            class="iframe">
+        </iframe>
+    </div>
 
     <!-- Weitere Inhalte Ihrer Webseite -->
-    <p>Kontakt: maxmustermann@gmail.com</p>
-    <p>Impressum:</p>
+    <div class="text">
+        <p>Kontakt: maxmustermann@gmail.com</p>
+        <p>Impressum:</p>
+    </div>
 
     <script>
-       const iframe = document.querySelector('iframe');
+        const iframe = document.querySelector('.iframe');
         if (iframe) {
             if (iframe.requestFullscreen) {
                 iframe.requestFullscreen();
@@ -62,5 +75,5 @@
             }
         }
     </script>
-  </body>
+</body>
 </html>
