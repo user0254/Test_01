@@ -22,16 +22,16 @@
             width: 200px;
         }
         .iframe-container {
-            position: relative;
-            padding-top: 200px; /* Platz für das Logo schaffen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 90vh; /* 90% der sichtbaren Höhe */
+            overflow: hidden; /* Verstecke den überschüssigen Bereich des Iframes */
         }
         .iframe {
-            position: absolute;
-            top: 5;
-            left: 5;
+            max-width: 360px;
             width: 100%;
-            height: 70%;
+            height: 90%; /* Ändere die Höhe auf 90% */
             border: none;
         }
         .text {
