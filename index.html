@@ -76,13 +76,27 @@
             const containerWidth = container.clientWidth;
             const containerHeight = container.clientHeight;
 
+            // Berechne die Skalierung für Breite und Höhe separat, um den Text nicht zu stauchen
             const scaleX = containerWidth / iframeWidth;
             const scaleY = containerHeight / iframeHeight;
 
             // Wähle das kleinere Verhältnis, um den Iframe zu zoomen
             const scale = Math.min(scaleX, scaleY);
 
+            // Skaliere den Iframe auf die sichtbare Größe
+            const scaledWidth = iframeWidth * scale;
+            const scaledHeight = iframeHeight * scale;
+
+            // Positioniere den Iframe so, dass er im sichtbaren Bereich bleibt
+            const offsetX = (containerWidth - scaledWidth) / 2;
+            const offsetY = (containerHeight - scaledHeight) / 2;
+
             iframe.style.transform = `scale(${scale})`;
+            iframe.style.transformOrigin = "top left";
+            iframe.style.width = `${scaledWidth}px`;
+            iframe.style.height = `${scaledHeight}px`;
+            iframe.style.left = `${offsetX}px`;
+            iframe.style.top = `${offsetY}px`;
         }
     </script>
 </body>
