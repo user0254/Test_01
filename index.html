@@ -35,40 +35,39 @@
     <!-- Hier gehört der Iframe-Code hin -->
 
  <iframe 
-      src="https://chatthing.ai/bots/94a55c48-4e1f-443b-8fc6-ee58fe54cbc8/embed" 
-      width="330px" 
-      height="550px" 
-      frameborder="0" 
-      allow="clipboard-write"
-      style="display: flex;"
-      class="webseite";
-     ></iframe>
+    src="https://chatthing.ai/bots/94a55c48-4e1f-443b-8fc6-ee58fe54cbc8/embed" 
+    width="100%" 
+    height="550" 
+    frameborder="0" 
+    allow="clipboard-write"
+    style="display: flex;"
+    class="webseite";
+  ></iframe>
+
     <!-- Weitere Inhalte Ihrer Webseite -->
     <p class="logo-container">Kontakt: maxmustermann@gmail.com</p>
     <p class="logo-container">Impressum:</p>
 
     <script>
-
-        let device = '';
-        function deviceCheck() {
-            var UserAgent = navigator.userAgent.toLowerCase();
-            /* User-Agent auf gewisse Schlüsselwörter prüfen*/
-            if (UserAgent.search(/(iphone|ipod|opera mini|fennec|palm|blackberry|android|symbian|series60)/) > -1) {
-                /* mobiles Endgerät*/
-                device = 'false';
-            } else {
-                /* kein mobiles Endgerät (PC, Tablet, etc.)*/
-                device = 'true';
-            }
+      let device = '';
+      function deviceCheck() {
+          var UserAgent = navigator.userAgent.toLowerCase();
+          /* User-Agent auf gewisse Schlüsselwörter prüfen*/
+          if (UserAgent.search(/(iphone|ipod|opera mini|fennec|palm|blackberry|android|symbian|series60)/) > -1) {
+              /* mobiles Endgerät*/
+              device = 'false';
+          } else {
+              /* kein mobiles Endgerät (PC, Tablet, etc.)*/
+              device = 'true';
+          }
         }
         deviceCheck();
-        alert(device);
         if (device === 'false') {
-            // Ändere die Logo-Breite auf 300px
-            document.querySelector('.logo').style.width = '300px';
+          // Ändere die Logo-Breite auf 300px
+          document.querySelector('.logo').style.width = '300px';
         }
-        if (device === 'false') {
-            querySelector('iframe').innerHTML =;
+        if (device === 'true') {
+          querySelector('iframe').width.innerHTML = "100%";
         } else {
         }
     </script>
