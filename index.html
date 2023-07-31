@@ -22,19 +22,17 @@
         width: 200px;
       }
 
-      @media (max-width: 300px) {
-        iframe {
-          /* Passe die Höhe des Iframes für Handys an */
-          height: 300px;
-          width: 100%;
-        }
-      }  
+        
     </style>
   </head>
   <body>
+
+    
+
     <div class="logo-container">
       <img src="Images/logo.jpeg" alt="" class="logo">
     </div>
+
 
     <!-- Hier gehört der Iframe-Code hin -->
     <iframe 
@@ -51,7 +49,23 @@
     <p class="logo-container">Impressum:</p>
 
     <script>
+      let device = '';
 
+      function deviceCheck() {
+        var UserAgent = navigator.userAgent.toLowerCase();
+
+        /* User-Agent auf gewisse Schlüsselwörter prüfen*/
+        if (UserAgent.search(/(iphone|ipod|opera mini|fennec|palm|blackberry|android|symbian|series60)/) > -1) {
+            /* mobiles Endgerät*/
+            device = 'false';
+        }else {
+            /* kein mobiles Endgerät (PC, Tablet, etc.)*/
+            device = 'true';
+        }
+      }
+
+      deviceCheck();
+      alert(device)
     </script>
   </body>
 </html>
