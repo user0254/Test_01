@@ -25,21 +25,16 @@
             position: relative;
             padding-top: 200px; /* Platz für das Logo schaffen */
             height: 90vh; /* 90% der sichtbaren Höhe */
-            overflow: hidden; /* Verstecke den überschüssigen Bereich des Iframes */
         }
         .iframe {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            height: 70%;
             border: none;
-            /* Füge Stile hinzu, um den Iframe zu zoomen */
-            transform-origin: 0 0;
         }
         .text {
             text-align: center;
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -49,13 +44,11 @@
     </div>
 
     <div class="iframe-container">
-        <!-- Hier gehört der Iframe-Code hin -->
         <iframe 
             src="https://chatthing.ai/bots/94a55c48-4e1f-443b-8fc6-ee58fe54cbc8/embed" 
             frameborder="0" 
             allow="clipboard-write"
-            class="iframe"
-            onload="fitIframeToContent(this)">
+            class="iframe">
         </iframe>
     </div>
 
@@ -66,37 +59,17 @@
     </div>
 
     <script>
-        function fitIframeToContent(iframe) {
-            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-            const iframeBody = iframeDocument.body;
-            const iframeWidth = iframeBody.scrollWidth;
-            const iframeHeight = iframeBody.scrollHeight;
-
-            const container = iframe.parentElement;
-            const containerWidth = container.clientWidth;
-            const containerHeight = container.clientHeight;
-
-            // Berechne die Skalierung für Breite und Höhe separat, um den Text nicht zu stauchen
-            const scaleX = containerWidth / iframeWidth;
-            const scaleY = containerHeight / iframeHeight;
-
-            // Wähle das kleinere Verhältnis, um den Iframe zu zoomen
-            const scale = Math.min(scaleX, scaleY);
-
-            // Skaliere den Iframe auf die sichtbare Größe
-            const scaledWidth = iframeWidth * scale;
-            const scaledHeight = iframeHeight * scale;
-
-            // Positioniere den Iframe so, dass er linksbündig bleibt und rechts abgeschnitten wird
-            const offsetX = 0;
-            const offsetY = (containerHeight - scaledHeight) / 2;
-
-            iframe.style.transform = `scale(${scale})`;
-            iframe.style.transformOrigin = "top left";
-            iframe.style.width = `${scaledWidth}px`;
-            iframe.style.height = `${scaledHeight}px`;
-            iframe.style.left = `${offsetX}px`;
-            iframe.style.top = `${offsetY}px`;
+        const iframe = document.querySelector('.iframe');
+        if (iframe) {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) {
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
+            }
         }
     </script>
 </body>
