@@ -51,18 +51,16 @@
     <script>
       let device = '';
       function deviceCheck() {
-          var UserAgent = navigator.userAgent.toLowerCase();
-          /* User-Agent auf gewisse Schlüsselwörter prüfen*/
-          if (UserAgent.search(/(iphone|ipod|opera mini|fennec|palm|blackberry|android|symbian|series60)/) > -1) {
-              /* mobiles Endgerät*/
-              device = 'false';
-          } else {
-              /* kein mobiles Endgerät (PC, Tablet, etc.)*/
-              device = 'true';
-          }
+        var UserAgent = navigator.userAgent.toLowerCase();
+        /* User-Agent auf gewisse Schlüsselwörter prüfen*/
+        if (UserAgent.search(/(iphone|ipod|opera mini|fennec|palm|blackberry|android|symbian|series60)/) > -1) {
+            /* mobiles Endgerät*/
+            device = 'false';
+        } else {
+            /* kein mobiles Endgerät (PC, Tablet, etc.)*/
+            device = 'true';
         }
-        alert(device)
-        deviceCheck();
+    
         if (device === 'false') {
           // Ändere die Logo-Breite auf 300px
           document.querySelector('.logo').style.width = '300px';
@@ -70,6 +68,7 @@
         if (device === 'true') {
           querySelector('iframe').width.innerHTML = "100%";
         } 
+      }
     </script>
 </body>
 </html>
