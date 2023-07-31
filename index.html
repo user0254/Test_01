@@ -50,25 +50,28 @@
 
     <script>
       let device = '';
-      function deviceCheck() {
+      function deviceCheck(callback) {
         var UserAgent = navigator.userAgent.toLowerCase();
-        /* User-Agent auf gewisse Schlüsselwörter prüfen*/
+        
         if (UserAgent.search(/(iphone|ipod|opera mini|fennec|palm|blackberry|android|symbian|series60)/) > -1) {
-            /* mobiles Endgerät*/
-            device = 'false';
+          // mobiles Endgerät
+          callback('false');
         } else {
-            /* kein mobiles Endgerät (PC, Tablet, etc.)*/
-            device = 'true';
+          // kein mobiles Endgerät (PC, Tablet, etc.)
+          callback('true');
         }
-    
+      }
+
+      deviceCheck(function(device) {
         if (device === 'false') {
           // Ändere die Logo-Breite auf 300px
           document.querySelector('.logo').style.width = '300px';
+        } else{
+          // Ändere die Breite des Iframes auf 100%
+          document.querySelector('iframe').style.width = '100%';
         }
-        if (device === 'true') {
-          querySelector('iframe').width.innerHTML = "100%";
-        } 
-      }
+      });
+
     </script>
 </body>
 </html>
