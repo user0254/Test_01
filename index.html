@@ -87,8 +87,8 @@
             const scaledWidth = iframeWidth * scale;
             const scaledHeight = iframeHeight * scale;
 
-            // Positioniere den Iframe so, dass er im sichtbaren Bereich bleibt
-            const offsetX = (containerWidth - scaledWidth) / 2;
+            // Positioniere den Iframe so, dass er linksbündig bleibt und rechts abgeschnitten wird
+            const offsetX = 0;
             const offsetY = (containerHeight - scaledHeight) / 2;
 
             iframe.style.transform = `scale(${scale})`;
